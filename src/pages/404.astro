@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import BlockButton from '../components/BlockButton.astro';
+---
+<Base
+  title="Page not found | Mind, Brain, Behavior Society"
+  description="That page doesn't exist."
+  path="/404"
+>
+  <main class="wrap">
+    <h1 class="page-title">That page doesn't exist.</h1>
+    <p><BlockButton href="/">Go home</BlockButton></p>
+  </main>
+  <div class="spacer"></div>
+</Base>
+
+<style>
+  .spacer { height: var(--s7); }
+</style>
