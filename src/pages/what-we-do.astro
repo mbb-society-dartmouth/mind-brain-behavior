@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="What we do | Mind, Brain, Behavior Society"
+  description="Lab tours, guest lectures, research placement, career workshops, and a student neurotech team. About five events a term."
+  path="/what-we-do"
+>
+  <main class="wrap">
+    <h1 class="page-title">What we do</h1>
+    <p class="intro">About five events a term, plus ongoing help with research and careers.</p>
+
+    <section class="section">
+      <h2 class="section-h">Events</h2>
+      <ul>
+        <li>Lab tours and demos at brain science labs on campus</li>
+        <li>Guest lectures</li>
+        <li>Career workshops for positions in academia and industry</li>
+        <li>Socials with other brain science students and professors</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section-h">Research</h2>
+      <ul>
+        <li>Help getting placed in neuroscience and psychology labs</li>
+        <li>A live sheet of course recommendations and reviews for brain science courses</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section-h">Building</h2>
+      <ul>
+        <li>The <a href="/neurotech">neurotech team</a>: hands-on work with EEG headsets, one project a term</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section-h">Mentoring</h2>
+      <ul>
+        <li>Advice for pre-med, neurotech, brain science research, and healthcare and biotech consulting paths</li>
+      </ul>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .intro { margin-bottom: var(--s2); }
+  ul {
+    list-style: none;
+    padding: 0;
+    max-width: 68ch;
+  }
+  li {
+    padding-block: 10px;
+    border-bottom: 1px solid var(--ink);
+  }
+  li:first-child { border-top: 1px solid var(--ink); }
+</style>
