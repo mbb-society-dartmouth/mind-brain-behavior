@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+import OfficerList from '../components/OfficerList.astro';
+---
+<Base
+  title="Our mission | Mind, Brain, Behavior Society"
+  description="Why the Mind, Brain, Behavior Society exists: closing the gap between Dartmouth's brain science students and work in their field."
+  path="/mission"
+>
+  <main class="wrap">
+    <h1 class="page-title">Our mission</h1>
+
+    <section class="section statement-wrap">
+      <hr class="rule" />
+      <p class="statement">
+        Foster interdisciplinary exploration and collaboration at the intersection of
+        neuroscience, psychology, and related fields that fall between departments at
+        Dartmouth. We aim to advance the understanding of the brain and mind, and inspire
+        innovation in these fields by connecting undergraduate students through speaker
+        events, research opportunities, and entrepreneurial initiatives.
+      </p>
+      <hr class="rule" />
+    </section>
+
+    <section class="section">
+      <h2 class="section-h">In plainer terms</h2>
+      <p>
+        Finance, consulting, and engineering students at Dartmouth have pipelines: clubs,
+        recruiting, and ways to work in their field before graduating. Brain science
+        students didn't. The society exists to close that gap.
+      </p>
+      <p>
+        Members are a mix of pre-meds, computer science majors, biomedical engineers, and
+        neuroscience, biology, and psychology majors, headed toward medicine, academic
+        research, software engineering, and healthcare or biotech consulting. Most people
+        can't tell whether a field is for them until they've done some of the work or met
+        the people doing it. The events and programs here exist to make that happen.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-h">Since 2025</h2>
+      <p>
+        Founded in spring 2025; the first events ran in fall 2025. Daniel Jeon (biomedical
+        engineering) and Shouka Tavakolian (neuroscience) served as the first president and
+        vice president and graduated in spring 2026. Today the society has about 90 members,
+        six officers, roughly five events a term, and a neurotech team.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-h">Officers, 2026 to 2027</h2>
+      <OfficerList />
+    </section>
+  </main>
+</Base>
+
+<style>
+  .statement {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.45;
+    max-width: 46ch;
+    padding-block: var(--s4);
+  }
+  p + p { margin-top: var(--s3); }
+</style>
