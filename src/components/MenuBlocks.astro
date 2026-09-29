@@ -31,6 +31,7 @@ const tiles = [
     grid-auto-rows: 1fr;
   }
   .tile {
+    position: relative;
     grid-column: span 6;
     display: flex;
     flex-direction: column;
@@ -50,7 +51,14 @@ const tiles = [
     .tile { grid-column: span 2; }
     .tile:nth-child(4), .tile:nth-child(5) { grid-column: span 3; }
   }
+  /* With no gaps, offsets must paint over later siblings to read as keys */
+  .tile:nth-child(1) { z-index: 5; }
+  .tile:nth-child(2) { z-index: 4; }
+  .tile:nth-child(3) { z-index: 3; }
+  .tile:nth-child(4) { z-index: 2; }
+  .tile:nth-child(5) { z-index: 1; }
   .tile:hover, .tile:focus-visible {
+    z-index: 6;
     transform: translate(2px, 2px);
     box-shadow: 3px 3px 0 var(--black);
     background: var(--wood);

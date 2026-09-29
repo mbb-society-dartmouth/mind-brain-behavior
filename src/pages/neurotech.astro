@@ -126,10 +126,15 @@ const past = projects.past[0];
   .paired p + p { margin-top: var(--s3); }
   ul { list-style: none; padding: 0; max-width: 68ch; }
   li { padding-block: 10px; border-bottom: 1px solid var(--ink); }
-  li:first-child { border-top: 1px solid var(--ink); }
   .pair-grid {
     display: grid;
     gap: var(--s4);
+  }
+  .pair-grid :global(img) {
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
   }
   @media (min-width: 768px) {
     .pair-grid { grid-template-columns: 1fr 1fr; gap: var(--s3); max-width: 1000px; }

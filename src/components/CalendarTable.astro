@@ -31,7 +31,6 @@ function fmt(iso: string): string {
     width: 100%;
     min-width: 560px;
     border-collapse: collapse;
-    border-top: 1px solid var(--ink);
   }
   th {
     text-align: left;
@@ -43,13 +42,12 @@ function fmt(iso: string): string {
     padding: 12px 24px 12px 0;
   }
   td { padding: 14px 24px 14px 0; vertical-align: top; }
+  td:first-child, th:first-child { padding-left: 12px; }
   tr { border-bottom: 1px solid var(--ink); }
   tbody tr:nth-child(even) { background: var(--paper); }
-  tbody tr:nth-child(even) td:first-child { padding-left: 12px; }
-  tbody tr:nth-child(even) td:last-child { padding-right: 12px; }
   .event { font-weight: 500; }
   /* tr border-left is unreliable with border-collapse; inset shadow on the first cell */
-  tbody tr.current td:first-child { box-shadow: inset 4px 0 0 var(--green); padding-left: 12px; }
+  tbody tr.current td:first-child { box-shadow: inset 4px 0 0 var(--green); }
 </style>
 
 <script>
