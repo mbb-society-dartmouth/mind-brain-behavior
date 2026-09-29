@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import BlockButton from '../components/BlockButton.astro';
+---
+<Base
+  title="Contact | Mind, Brain, Behavior Society"
+  description="Reach the Mind, Brain, Behavior Society: officer emails, Instagram, and how professors can offer a lab tour or guest lecture."
+  path="/contact"
+>
+  <main class="wrap">
+    <h1 class="page-title">Contact</h1>
+
+    <p>Questions, new-member inquiries, and anything else:</p>
+    <ul class="contacts">
+      <li>Luca Gandrud, President: <a href="mailto:luca.d.gandrud.27@dartmouth.edu">luca.d.gandrud.27@dartmouth.edu</a></li>
+      <li>Crystal Ye, Vice President: <a href="mailto:crystal.ye.27@dartmouth.edu">crystal.ye.27@dartmouth.edu</a></li>
+      <li>Instagram: <a href="https://www.instagram.com/dartmouth.mbb">@dartmouth.mbb</a></li>
+    </ul>
+    <p>New members are always welcome, and we're happy to walk you through how to get involved.</p>
+    <p class="cta"><BlockButton href="mailto:luca.d.gandrud.27@dartmouth.edu">Email the president</BlockButton></p>
+
+    <section class="section">
+      <h2 class="section-h">For professors and researchers</h2>
+      <p>
+        If you'd like to host a lab tour, give a guest lecture, or take on undergraduate
+        researchers, email either officer above.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-h">Get involved</h2>
+      <p>
+        Come to an event (see the <a href="/calendar">term calendar</a>), or email us.
+        Applications for the neurotech team open periodically (see the
+        <a href="/neurotech">neurotech page</a>).
+      </p>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .contacts {
+    list-style: none;
+    padding: 0;
+    margin-block: var(--s3);
+    max-width: 68ch;
+  }
+  .contacts li { padding-block: 10px; border-bottom: 1px solid var(--ink); }
+  .contacts li:first-child { border-top: 1px solid var(--ink); }
+  .cta { margin-top: var(--s4); }
+</style>
