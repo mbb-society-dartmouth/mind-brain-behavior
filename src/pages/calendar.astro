@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import CalendarTable from '../components/CalendarTable.astro';
+import cal from '../data/calendar.json';
+---
+<Base
+  title="Term calendar | Mind, Brain, Behavior Society"
+  description="Fall 2026 events, week by week: lab tour, VR workshop, career workshop, social, and guest lecture."
+  path="/calendar"
+>
+  <main class="wrap">
+    <h1 class="page-title">Term calendar</h1>
+    <p class="term-label">{cal.label}</p>
+    <p class="note">{cal.note}</p>
+
+    <section class="section">
+      <CalendarTable />
+    </section>
+  </main>
+</Base>
+
+<style>
+  .term-label {
+    font-size: var(--size-section);
+    font-weight: 500;
+    margin-bottom: var(--s2);
+  }
+  .note { color: var(--grey-mid); font-size: 15px; }
+  .section { margin-top: var(--s4); }
+</style>
