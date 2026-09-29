@@ -1,0 +1,140 @@
+---
+import Base from '../layouts/Base.astro';
+import Figure from '../components/Figure.astro';
+import BlockButton from '../components/BlockButton.astro';
+import equipment from '../data/equipment.json';
+import projects from '../data/projects.json';
+import heroPhoto from '../assets/media/neurotech-team-neuroflow-presentation-at-technigala.png';
+import neuroflowShot from '../assets/media/neuroflow-screenshot.png';
+
+const equipImages: Record<string, ImageMetadata> = {
+  'emotiv-insight-eeg': (await import('../assets/media/emotiv-insight-eeg.webp')).default,
+  'open-bci-ganglion-eeg': (await import('../assets/media/open-bci-ganglion-eeg.webp')).default,
+};
+import type { ImageMetadata } from 'astro';
+const past = projects.past[0];
+---
+<Base
+  title="Neurotech team | Mind, Brain, Behavior Society"
+  description="Six to ten members learning about the brain by building with consumer EEG hardware. One project a term, presented at Dartmouth Technigala."
+  path="/neurotech"
+>
+  <main class="wrap">
+    <h1 class="page-title">Neurotech team</h1>
+
+    <Figure
+      src={heroPhoto}
+      alt="Three neurotech team members at a standing table at Technigala, one wearing EEG electrodes, with a laptop running Neuroflow and project posters behind them."
+      caption="The neurotech team presenting Neuroflow at Technigala."
+      bleed
+      eager
+      widths={[640, 1080, 1440, 2000]}
+      sizes="100vw"
+    />
+
+    <section class="section">
+      <p>
+        A group of six to ten society members who learn about the brain by building projects
+        with noninvasive brain-sensing hardware, currently consumer-grade EEG. Each term the
+        team picks a real problem, builds toward a product, and presents its progress at
+        Dartmouth Technigala.
+      </p>
+    </section>
+
+    <section class="section statement-wrap">
+      <hr class="rule" />
+      <div class="paired">
+        <p>We're not building a company. We're excited to learn more about the mind by using technology and AI.</p>
+        <p>The goal is hands-on experience with an EEG, and the skills that come from building a product as a team.</p>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section class="section">
+      <h2 class="section-h">How the team works</h2>
+      <ul>
+        <li>Two sides: developers (technical research, product development, hardware) and product managers (logistics, stakeholder engagement, presentations).</li>
+        <li>Software engineering experience isn't required. Members pick up new skills quickly.</li>
+        <li>Led by Arden Rogers '28, Neurotech Chair. Previously led by Luca Gandrud '27.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section-h">Equipment</h2>
+      <div class="pair-grid">
+        {equipment.map((e) => (
+          <Figure
+            src={equipImages[e.image]}
+            alt={e.alt}
+            caption={`${e.name}.`}
+            credit={e.credit}
+            creditUrl={e.creditUrl}
+            widths={[420, 700]}
+            sizes="(max-width: 767px) 100vw, 480px"
+          />
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-h">{projects.current.heading}</h2>
+      <p>{projects.current.body}</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-h">Past project: {past.name} ({past.termLabel})</h2>
+      <p><em>The problem.</em> {past.problem}</p>
+      <p><em>The approach.</em> {past.approach}</p>
+      <p><em>The result.</em> {past.result}</p>
+      <div class="project-figure">
+        <Figure
+          src={neuroflowShot}
+          alt={past.imageAlt}
+          caption={past.imageCaption}
+          widths={[640, 1080, 1400]}
+          sizes="(max-width: 767px) 100vw, 800px"
+        />
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-h">Applications</h2>
+      <p>
+        Applications are closed for now. The team opens them periodically; check back here
+        or email the officers on the <a href="/contact">contact page</a>.
+      </p>
+      <p class="apply"><BlockButton disabled>Applications closed</BlockButton></p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-h">Current members</h2>
+      <p>Roster to be added.</p>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .paired {
+    padding-block: var(--s4);
+    max-width: 52ch;
+  }
+  .paired p {
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+  .paired p + p { margin-top: var(--s3); }
+  ul { list-style: none; padding: 0; max-width: 68ch; }
+  li { padding-block: 10px; border-bottom: 1px solid var(--ink); }
+  li:first-child { border-top: 1px solid var(--ink); }
+  .pair-grid {
+    display: grid;
+    gap: var(--s4);
+  }
+  @media (min-width: 768px) {
+    .pair-grid { grid-template-columns: 1fr 1fr; gap: var(--s3); max-width: 1000px; }
+  }
+  .section p + p { margin-top: var(--s3); }
+  .project-figure { margin-top: var(--s4); }
+  .apply { margin-top: var(--s4); }
+</style>
