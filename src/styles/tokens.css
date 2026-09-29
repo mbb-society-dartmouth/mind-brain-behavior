@@ -1,0 +1,49 @@
+/* Design tokens. See docs/DESIGN.md section 2. Use only these. */
+:root {
+  /* Color */
+  --white: #FFFFFF;      /* default page background, dominant surface */
+  --paper: #F1ECE1;      /* home hero field, menu page, footer, table stripes */
+  --ink: #161616;        /* body and heading text on light surfaces */
+  --black: #000000;      /* menu blocks, pseudo-3D offset */
+  --grey: #3C3C3C;       /* idle menu block fill, secondary rules */
+  --grey-deep: #2A2A2A;  /* darkened non-hovered menu blocks */
+  --grey-mid: #8A8A8A;   /* captions, metadata, disabled controls */
+  --wood: #B5602A;       /* hover/active blocks, current-page marker */
+  --wood-deep: #8F4A1F;  /* orange as text on white (AA) */
+  --green: #00693E;      /* Dartmouth Green: link underlines, focus, current week */
+
+  /* Type */
+  --font-body: 'Ranade', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Clash Display', 'Ranade', 'Arial Black', sans-serif;
+
+  --size-home-title: clamp(56px, 9vw, 152px);
+  --size-page-title: 48px;
+  --size-section: 26px;
+  --size-body: 17px;
+  --size-caption: 13px;
+
+  /* Spacing scale: 8 16 24 40 64 96 160 */
+  --s1: 8px; --s2: 16px; --s3: 24px; --s4: 40px;
+  --s5: 64px; --s6: 96px; --s7: 160px;
+
+  /* Layout */
+  --max-w: 1200px;
+  --gutter: 24px;
+  --topbar-h: 56px;
+  --topbar-h-open: 104px;
+
+  /* Motion */
+  --speed-press: 90ms;
+  --speed-menu: 160ms;
+}
+@media (min-width: 768px) {
+  :root { --gutter: 48px; }
+}
+@media (max-width: 767px) {
+  :root {
+    --size-home-title: clamp(44px, 14vw, 72px);
+    --size-page-title: 34px;
+    --size-section: 22px;
+    --size-body: 16px;
+  }
+}

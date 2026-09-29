@@ -1,0 +1,67 @@
+---
+import { Image } from 'astro:assets';
+import data from '../data/officers.json';
+
+// Match headshots by name in the filename; officers without one list without a photo.
+const photos = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/media/*-headshot.png', { eager: true },
+);
+import type { ImageMetadata } from 'astro';
+function photoFor(key: string): ImageMetadata | null {
+  const hit = Object.entries(photos).find(([p]) => p.includes(key));
+  return hit ? hit[1].default : null;
+}
+---
+<ol class="officers">
+  {data.officers.map((o) => {
+    const img = photoFor(o.photo);
+    return (
+      <li class="row">
+        {img && (
+          <Image
+            class="face"
+            src={img}
+            alt={`${o.name}, ${o.role}.`}
+            width={144}
+            height={144}
+            densities={[1, 2]}
+            loading="lazy"
+          />
+        )}
+        <span class="name">{o.name} {o.class}</span>
+        <span class="role">{o.role}</span>
+        <span class="major">{o.major}</span>
+      </li>
+    );
+  })}
+</ol>
+
+<style>
+  .officers {
+    list-style: none;
+    padding: 0;
+    border-top: 1px solid var(--ink);
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    grid-template-areas: 'face name' 'face role' 'face major';
+    column-gap: var(--s3);
+    row-gap: 2px;
+    align-items: center;
+    padding-block: var(--s2);
+    border-bottom: 1px solid var(--ink);
+  }
+  .face { grid-area: face; width: 72px; height: 72px; object-fit: cover; }
+  .name { grid-area: name; font-weight: 500; }
+  .role { grid-area: role; }
+  .major { grid-area: major; color: var(--grey-mid); font-size: 15px; }
+  @media (min-width: 768px) {
+    .row {
+      grid-template-columns: 72px 1.2fr 1fr 1.2fr;
+      grid-template-areas: 'face name role major';
+      column-gap: var(--s4);
+    }
+    .major { font-size: inherit; }
+  }
+</style>

@@ -1,0 +1,116 @@
+@import './tokens.css';
+
+/* Fonts: self-hosted from Fontshare (ITF Free Font License, see public/fonts/) */
+@font-face { font-family: 'Ranade'; src: url('/fonts/Ranade-Light.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Ranade'; src: url('/fonts/Ranade-LightItalic.woff2') format('woff2'); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Ranade'; src: url('/fonts/Ranade-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Ranade'; src: url('/fonts/Ranade-Italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Ranade'; src: url('/fonts/Ranade-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Ranade'; src: url('/fonts/Ranade-MediumItalic.woff2') format('woff2'); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Ranade'; src: url('/fonts/Ranade-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Ranade'; src: url('/fonts/Ranade-BoldItalic.woff2') format('woff2'); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Clash Display'; src: url('/fonts/ClashDisplay-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+
+/* Base */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--size-body);
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+img, svg, video { display: block; max-width: 100%; }
+img { height: auto; }
+button { font: inherit; }
+
+h1, h2, h3 { line-height: 1.1; letter-spacing: -0.01em; }
+p { max-width: 68ch; }
+
+a { color: inherit; text-decoration-color: var(--green); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+
+::selection { background: var(--paper); }
+
+/* Layout helpers */
+.wrap { max-width: var(--max-w); margin-inline: auto; padding-inline: var(--gutter); }
+.rule { border: 0; border-top: 1px solid var(--ink); }
+.on-paper .rule, .rule--black { border-top-color: var(--black); }
+
+/* Inner page skeleton */
+.page-title {
+  font-size: var(--size-page-title);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+  margin-top: var(--s6);
+  margin-bottom: var(--s5);
+}
+.section-h {
+  font-size: var(--size-section);
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: var(--s3);
+}
+.section { margin-block: var(--s5); }
+@media (min-width: 768px) { .section { margin-block: var(--s6); } }
+
+.meta {
+  font-size: var(--size-caption);
+  letter-spacing: 0.06em;
+  color: var(--grey-mid);
+}
+
+/* Pseudo-3D block: the signature control. See DESIGN.md section 3. */
+.block {
+  display: inline-block;
+  background: var(--white);
+  color: var(--ink);
+  border: 1.5px solid var(--black);
+  border-radius: 0;
+  box-shadow: 5px 5px 0 var(--black);
+  padding: 12px 28px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--speed-press) ease-out, box-shadow var(--speed-press) ease-out,
+              background var(--speed-press) ease-out, color var(--speed-press) ease-out;
+}
+.block:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 var(--black);
+  background: var(--wood);
+  color: var(--white);
+  text-decoration: none;
+}
+.block:active {
+  transform: translate(5px, 5px);
+  box-shadow: none;
+}
+.block:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+.block[aria-disabled='true'], .block:disabled {
+  background: var(--paper);
+  color: var(--grey-mid);
+  border-color: var(--grey-mid);
+  box-shadow: 5px 5px 0 var(--grey-mid);
+  cursor: not-allowed;
+  transform: none;
+}
+.block--dark { background: var(--grey); color: var(--white); }
+
+/* Motion discipline */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

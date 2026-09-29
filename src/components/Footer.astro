@@ -1,0 +1,28 @@
+---
+const buildDate = new Date().toLocaleDateString('en-US', {
+  year: 'numeric', month: 'long', day: 'numeric',
+});
+---
+<footer class="footer on-paper">
+  <div class="wrap">
+    <p class="line strong">Dartmouth Undergraduate Mind, Brain, Behavior Society</p>
+    <p class="line">An undergraduate student organization at Dartmouth</p>
+    <p class="line">
+      <a href="mailto:luca.d.gandrud.27@dartmouth.edu">luca.d.gandrud.27@dartmouth.edu</a>,
+      <a href="mailto:crystal.ye.27@dartmouth.edu">crystal.ye.27@dartmouth.edu</a>, and Instagram
+      <a href="https://www.instagram.com/dartmouth.mbb">@dartmouth.mbb</a>
+    </p>
+    <p class="line meta">Last published: {buildDate}</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--paper);
+    border-top: 1px solid var(--black);
+    padding-block: var(--s4);
+  }
+  .line { font-size: 15px; line-height: 1.7; }
+  .strong { font-weight: 500; }
+  .meta { margin-top: var(--s2); }
+</style>

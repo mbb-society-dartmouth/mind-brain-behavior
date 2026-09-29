@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Emotiv Insight headset",
+    "modelNameDraft": true,
+    "image": "emotiv-insight-eeg",
+    "alt": "A person wearing the Emotiv Insight, a slim black EEG headset with thin sensor arms reaching over the scalp.",
+    "credit": "Photo: Emotiv",
+    "creditUrl": "https://www.emotiv.com"
+  },
+  {
+    "name": "OpenBCI Ganglion board",
+    "image": "open-bci-ganglion-eeg",
+    "alt": "A person wearing an OpenBCI Ganglion electrode setup: a black headband holding snap electrodes against the forehead.",
+    "credit": "Photo: OpenBCI",
+    "creditUrl": "https://openbci.com"
+  }
+]

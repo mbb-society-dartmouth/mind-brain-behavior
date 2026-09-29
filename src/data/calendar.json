@@ -1,0 +1,13 @@
+{
+  "term": "fall-2026",
+  "label": "Fall 2026",
+  "note": "Week 1 began Monday, September 14. Dates below are the Monday of each week; times, places, and links will be added as they're set.",
+  "weeks": [
+    { "week": 1, "weekOf": "2026-09-14", "event": "Intro meeting", "details": "Held", "time": "", "place": "", "link": "" },
+    { "week": 4, "weekOf": "2026-10-05", "event": "Lab tour", "details": "Date, time, and place TBD", "time": "", "place": "", "link": "" },
+    { "week": 5, "weekOf": "2026-10-12", "event": "VR workshop", "details": "TBD", "time": "", "place": "", "link": "" },
+    { "week": 6, "weekOf": "2026-10-19", "event": "Career workshop", "details": "TBD", "time": "", "place": "", "link": "" },
+    { "week": 8, "weekOf": "2026-11-02", "event": "Social event", "details": "TBD", "time": "", "place": "", "link": "" },
+    { "week": 9, "weekOf": "2026-11-09", "event": "Guest lecture", "details": "TBD", "time": "", "place": "", "link": "" }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "term": "2026 to 2027",
+  "officers": [
+    { "name": "Luca Gandrud", "class": "'27", "role": "President", "major": "Neuroscience", "photo": "luca-headshot" },
+    { "name": "Crystal Ye", "class": "'27", "role": "Vice President", "major": "Biology and Music", "photo": "crystal-headshot" },
+    { "name": "Colson Duncan", "class": "'27", "role": "Treasurer", "major": "Biology and Neuroscience", "photo": "colson-headshot" },
+    { "name": "Arden Rogers", "class": "'28", "role": "Neurotech Chair", "major": "Psychology", "photo": "arden-headshot" },
+    { "name": "Will Harris", "class": "'29", "role": "Operations Chair", "major": "Biomedical Engineering", "photo": "will-headshot" },
+    { "name": "Helena Kaaua", "class": "'29", "role": "Public Outreach Chair", "major": "Neuroscience", "photo": "helena-headshot" }
+  ]
+}

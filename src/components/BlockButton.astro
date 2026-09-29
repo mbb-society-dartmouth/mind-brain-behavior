@@ -1,0 +1,12 @@
+---
+interface Props {
+  href?: string;
+  disabled?: boolean;
+}
+const { href, disabled = false } = Astro.props;
+---
+{disabled ? (
+  <span class="block" aria-disabled="true"><slot /></span>
+) : (
+  <a class="block" href={href}><slot /></a>
+)}

@@ -1,0 +1,77 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  caption?: string;
+  credit?: string;
+  creditUrl?: string;
+  overlay?: string; // italic sentence on a black strip, bottom-left
+  bleed?: boolean; // full-bleed, breaking the column
+  widths?: number[];
+  sizes?: string;
+  eager?: boolean;
+}
+const {
+  src, alt, caption, credit, creditUrl, overlay,
+  bleed = false,
+  widths = [480, 800, 1200],
+  sizes = '(max-width: 767px) 100vw, 800px',
+  eager = false,
+} = Astro.props;
+---
+<figure class:list={['figure', { bleed }]}>
+  <div class="frame">
+    <Image
+      src={src}
+      alt={alt}
+      widths={widths}
+      sizes={sizes}
+      loading={eager ? 'eager' : 'lazy'}
+    />
+    {overlay && <p class="overlay">{overlay}</p>}
+  </div>
+  {(caption || credit) && (
+    <figcaption>
+      {caption}
+      {credit && creditUrl && (
+        <>{caption ? ' ' : ''}<a href={creditUrl}>{credit}</a></>
+      )}
+      {credit && !creditUrl && <>{caption ? ' ' : ''}{credit}</>}
+    </figcaption>
+  )}
+</figure>
+
+<style>
+  .figure { margin: 0; }
+  .frame { position: relative; }
+  .frame :global(img) { width: 100%; height: auto; }
+  .bleed {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+  }
+  .overlay {
+    position: absolute;
+    left: 0;
+    bottom: var(--s3);
+    max-width: min(85%, 34ch);
+    background: var(--black);
+    color: var(--white);
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.4;
+    padding: 10px 16px;
+  }
+  @media (min-width: 768px) {
+    .overlay { font-size: 22px; bottom: var(--s4); }
+  }
+  figcaption {
+    font-size: var(--size-caption);
+    color: var(--grey-mid);
+    margin-top: var(--s1);
+    max-width: 68ch;
+  }
+  figcaption a { color: var(--grey-mid); }
+</style>

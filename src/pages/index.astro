@@ -1,17 +1,159 @@
 ---
-
+import Base from '../layouts/Base.astro';
+import HeroSynapse from '../components/HeroSynapse.astro';
+import MenuBlocks from '../components/MenuBlocks.astro';
+import BlockButton from '../components/BlockButton.astro';
 ---
+<Base
+  title="Mind, Brain, Behavior Society at Dartmouth"
+  description="Dartmouth's undergraduate society for brain science: lab tours, guest lectures, help finding research positions, and a student EEG team."
+  path="/"
+>
+  <div class="hero-wrap" id="hero-wrap">
+    <section class="hero on-paper" aria-label="Mind, Brain, Behavior Society">
+      <div class="band">
+        <p class="descriptor">An undergraduate student<br />organization at Dartmouth</p>
+        <div class="title-group">
+          <h1 class="title">Mind Brain<br />Behavior Society</h1>
+          <p class="subline">at Dartmouth College</p>
+        </div>
+        <div class="cta">
+          <BlockButton href="/contact">Contact</BlockButton>
+        </div>
+      </div>
+      <div class="art" aria-hidden="false">
+        <HeroSynapse />
+      </div>
+      <p class="hook">For Dartmouth undergraduates who want to get closer to brain science than a lecture hall allows.</p>
+    </section>
+  </div>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+  <MenuBlocks />
+</Base>
+
+<style>
+  /* State 1 + 2: sticky hero with one viewport of zoom runway */
+  .hero-wrap { height: 200vh; }
+  .hero {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* Reference 1: descriptor top-left, huge centered title, button top-right,
+     overlapping levels rather than three squeezed columns. */
+  .band {
+    position: relative;
+    padding: var(--s3) var(--gutter) 0;
+  }
+  .descriptor {
+    position: absolute;
+    top: var(--s3);
+    left: var(--gutter);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+  }
+  .cta {
+    position: absolute;
+    top: var(--s3);
+    right: var(--gutter);
+  }
+  .title-group { text-align: center; padding-top: var(--s2); }
+  .title {
+    font-family: var(--font-display);
+    font-size: var(--size-home-title);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+  .subline { font-size: 17px; margin-top: var(--s2); max-width: none; }
+
+  .art {
+    flex: 1;
+    min-height: 0;
+    transform-origin: center;
+    will-change: transform;
+  }
+  /* The hook overlaps strokes at most widths, so it sits on a thin black strip */
+  .hook {
+    position: absolute;
+    left: var(--gutter);
+    bottom: var(--s4);
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.4;
+    max-width: 38ch;
+    background: var(--black);
+    color: var(--white);
+    padding: 10px 16px;
+  }
+
+  @media (max-width: 767px) {
+    .descriptor { position: static; margin-bottom: var(--s2); }
+    .cta { position: static; margin-top: var(--s3); display: inline-block; }
+    .band { padding-top: var(--s2); }
+    .title-group { text-align: left; padding-top: 0; }
+    .hook { font-size: 18px; bottom: var(--s3); max-width: calc(100% - 2 * var(--gutter)); }
+  }
+
+  /* State 2: scroll-driven zoom. CSS scroll timeline, JS fallback below. */
+  @supports (animation-timeline: scroll()) {
+    .zoomable .art {
+      animation: hero-zoom linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 100vh;
+    }
+    .zoomable .band {
+      animation: hero-fade linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 100vh;
+    }
+  }
+  @keyframes hero-zoom { to { transform: scale(1.6); } }
+  @keyframes hero-fade { to { opacity: 0; } }
+  @media (max-width: 767px) {
+    @keyframes hero-zoom { to { transform: scale(1.2); } }
+  }
+
+  /* JS fallback drives --p from 0 to 1 over the first viewport of scroll */
+  .js-zoom .art { transform: scale(calc(1 + var(--p, 0) * var(--zoom-amt, 0.6))); }
+  .js-zoom .band { opacity: calc(1 - var(--p, 0)); }
+  @media (max-width: 767px) {
+    .js-zoom .art { --zoom-amt: 0.2; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-wrap { height: auto; }
+    .hero { position: static; }
+    .zoomable .art, .zoomable .band, .js-zoom .art { animation: none; transform: none; }
+    .js-zoom .band { opacity: 1; }
+  }
+</style>
+
+<script>
+  const wrap = document.getElementById('hero-wrap');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (wrap && !reduced) {
+    if (CSS.supports('animation-timeline: scroll()')) {
+      wrap.classList.add('zoomable');
+    } else {
+      wrap.classList.add('js-zoom');
+      let ticking = false;
+      const update = () => {
+        ticking = false;
+        const p = Math.min(Math.max(scrollY / innerHeight, 0), 1);
+        wrap.style.setProperty('--p', String(p));
+      };
+      addEventListener('scroll', () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+      }, { passive: true });
+      update();
+    }
+  }
+</script>

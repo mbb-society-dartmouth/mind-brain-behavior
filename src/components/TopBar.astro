@@ -1,0 +1,189 @@
+---
+interface Props { current?: string }
+const { current = '' } = Astro.props;
+const items = [
+  { label: 'Our mission', href: '/mission' },
+  { label: 'What we do', href: '/what-we-do' },
+  { label: 'Neurotech team', href: '/neurotech' },
+  { label: 'Term calendar', href: '/calendar' },
+  { label: 'Contact', href: '/contact' },
+];
+---
+<header class="topbar">
+  <div class="topbar-inner">
+    <a
+      class="dartmouth"
+      href="https://home.dartmouth.edu"
+      aria-label="Dartmouth College home"
+    >
+      <img src="/media/dartmouth-logo.webp" alt="Dartmouth College" height="26" width="118" />
+    </a>
+
+    <nav class="nav" aria-label="Site">
+      {items.map((it) => (
+        <a
+          class="navlink"
+          href={it.href}
+          aria-current={current === it.href ? 'page' : undefined}
+        >{it.label}</a>
+      ))}
+    </nav>
+
+    <button class="menu-btn" id="menu-open" aria-haspopup="dialog">Menu</button>
+  </div>
+</header>
+
+<dialog class="menu-dialog" id="menu-dialog" aria-label="Site menu">
+  <nav aria-label="Site">
+    {items.map((it) => (
+      <a
+        class="menu-item"
+        href={it.href}
+        aria-current={current === it.href ? 'page' : undefined}
+      >{it.label}</a>
+    ))}
+  </nav>
+  <button class="menu-item menu-close" id="menu-close">Close</button>
+</dialog>
+
+<style>
+  .topbar {
+    position: relative;
+    height: var(--topbar-h);
+    background: var(--white);
+    border-bottom: 1px solid var(--ink);
+    transition: height var(--speed-menu) ease-out;
+    z-index: 10;
+  }
+  .topbar-inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: var(--gutter);
+  }
+  /* Dartmouth logo: unmodified, clear space at least its own height on all sides */
+  .dartmouth { display: flex; align-items: center; }
+  .dartmouth img { height: 26px; width: auto; }
+
+  .menu-btn {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 12px 0 12px 24px;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    cursor: pointer;
+    min-height: 44px;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    height: 100%;
+  }
+  .navlink {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .navlink:hover { text-decoration: underline; text-decoration-color: var(--green); }
+  .navlink[aria-current='page'] { color: var(--wood-deep); }
+
+  /* Expanded state: bar grows, labels become five equal blocks filling the bar */
+  @media (min-width: 900px) and (hover: hover) {
+    .topbar:has(.nav:is(:hover, :focus-within)) { height: var(--topbar-h-open); }
+    .topbar:has(.nav:is(:hover, :focus-within)) .nav {
+      position: absolute;
+      inset: 0;
+      gap: 0;
+      align-items: stretch;
+      background: var(--grey);
+      box-shadow: 0 5px 0 var(--black);
+    }
+    .topbar:has(.nav:is(:hover, :focus-within)) .navlink {
+      flex: 1 1 0;
+      display: flex;
+      align-items: center;
+      padding-inline: 28px;
+      background: var(--grey);
+      color: var(--white);
+      border-left: 1px solid var(--black);
+      transition: flex-grow var(--speed-menu) ease-out,
+                  background var(--speed-menu) ease-out,
+                  transform var(--speed-press) ease-out,
+                  box-shadow var(--speed-press) ease-out;
+    }
+    .topbar:has(.nav:is(:hover, :focus-within)) .navlink:first-child { border-left: 0; }
+    .topbar:has(.nav:is(:hover, :focus-within)) .navlink[aria-current='page'] { color: var(--white); box-shadow: inset 0 -4px 0 var(--wood); }
+    .topbar .nav:is(:hover, :focus-within) .navlink { flex-grow: 0.875; background: var(--grey-deep); }
+    .topbar .nav .navlink:is(:hover, :focus-visible) { flex-grow: 1.5; background: var(--wood); text-decoration: none; }
+    .topbar .nav .navlink:focus-visible { outline-offset: -4px; }
+    .topbar .nav .navlink:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 var(--black);
+    }
+  }
+  @media (max-width: 899px) {
+    .nav { display: none; }
+    .menu-btn { display: block; }
+  }
+
+  /* Mobile menu: full-screen paper panel */
+  .menu-dialog {
+    border: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    background: var(--paper);
+    display: none;
+    flex-direction: column;
+  }
+  .menu-dialog[open] { display: flex; }
+  .menu-dialog nav { display: flex; flex-direction: column; flex: 1; }
+  .menu-item {
+    display: flex;
+    align-items: center;
+    height: 72px;
+    padding-inline: var(--gutter);
+    background: var(--grey);
+    color: var(--white);
+    font-size: 17px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 0;
+    border-bottom: 1px solid var(--black);
+    cursor: pointer;
+    text-align: left;
+    transition: transform var(--speed-press) ease-out, background var(--speed-press) ease-out;
+  }
+  .menu-item:active { background: var(--wood); transform: translateY(3px); }
+  .menu-item[aria-current='page'] { box-shadow: inset 4px 0 0 var(--wood); }
+  .menu-close {
+    margin-top: auto;
+    border-bottom: 0;
+    border-top: 1px solid var(--black);
+    background: var(--black);
+  }
+</style>
+
+<script>
+  const dialog = document.getElementById('menu-dialog') as HTMLDialogElement | null;
+  const openBtn = document.getElementById('menu-open');
+  const closeBtn = document.getElementById('menu-close');
+  openBtn?.addEventListener('click', () => dialog?.showModal());
+  closeBtn?.addEventListener('click', () => dialog?.close());
+  // Scroll lock while open
+  dialog?.addEventListener('toggle', () => {
+    document.documentElement.style.overflow = dialog.open ? 'hidden' : '';
+  });
+</script>

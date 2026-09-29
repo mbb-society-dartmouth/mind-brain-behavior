@@ -1,0 +1,151 @@
+---
+// The home hero: a loose network of interconnected neurons drawn as a
+// time-lapse sketch in colored pencil and watercolor. Hand-authored paths,
+// wobbly retraced outlines, no straight segments, no glow, no uniform sizes.
+// Stand-in for a commissioned drawing (see docs/TODO.md).
+---
+<svg
+  class="synapse"
+  viewBox="0 0 1440 600"
+  preserveAspectRatio="xMidYMid slice"
+  role="img"
+  aria-label="A loose, hand-drawn network of neurons: cell bodies linked by branching axons and dendrites, with watercolor pools behind them."
+>
+  <!-- Watercolor pools, behind everything -->
+  <g class="pools">
+    <path class="pool" style="--po:.13" fill="var(--green)" d="M520,130 C540,84 640,72 692,110 C744,148 726,214 660,232 C594,250 500,176 520,130 Z" />
+    <path class="pool" style="--po:.14" fill="var(--wood)" d="M780,290 C818,238 950,244 992,306 C1034,368 972,428 884,416 C796,404 742,342 780,290 Z" />
+    <path class="pool" style="--po:.11" fill="var(--wood)" d="M150,80 C172,44 260,40 292,80 C324,120 284,166 222,160 C160,154 128,116 150,80 Z" />
+    <path class="pool" style="--po:.12" fill="var(--green)" d="M1120,110 C1146,72 1240,76 1264,120 C1288,164 1240,204 1178,196 C1116,188 1094,148 1120,110 Z" />
+    <path class="pool" style="--po:.10" fill="var(--green)" d="M170,430 C192,394 280,392 308,432 C336,472 296,514 234,508 C172,502 148,466 170,430 Z" />
+    <path class="pool" style="--po:.10" fill="var(--wood)" d="M630,430 C650,398 730,396 754,432 C778,468 742,504 688,498 C634,492 610,462 630,430 Z" />
+  </g>
+
+  <!-- Strands: axons and dendrites. pathLength=1 normalizes the draw-on. -->
+  <g class="strands" fill="none" stroke-linecap="round">
+    <path class="st g1" pathLength="1" stroke="var(--ink)" stroke-width="1.8" d="M-30,70 C30,84 70,66 118,84 C150,96 172,102 194,108" />
+    <path class="st g1" pathLength="1" stroke="var(--ink)" stroke-width="2.2" d="M238,128 C310,158 360,142 430,168 C480,186 530,172 562,166" />
+    <path class="st g1 ghost" pathLength="1" stroke="var(--ink)" stroke-width="1.2" d="M240,133 C312,162 362,147 432,172 C482,190 528,177 558,171" />
+    <path class="st g2" pathLength="1" stroke="var(--ink)" stroke-width="2" d="M610,158 C700,138 760,158 830,140 C920,118 1040,152 1152,146" />
+    <path class="st g2" pathLength="1" stroke="var(--ink)" stroke-width="1.6" d="M1208,142 C1280,136 1330,116 1470,110" />
+    <path class="st g2" pathLength="1" stroke="var(--ink)" stroke-width="1.6" d="M204,142 C210,220 190,290 214,360 C226,396 224,428 222,446" />
+    <path class="st g3 ap-track" pathLength="1" stroke="var(--wood-deep)" stroke-width="2.2" d="M600,200 C616,246 660,266 690,296 C710,316 730,320 748,318" />
+    <path class="st g3 ghost" pathLength="1" stroke="var(--wood-deep)" stroke-width="1.1" d="M604,197 C620,243 664,262 694,292 C713,311 731,315 746,313" />
+    <path class="st g3" pathLength="1" stroke="var(--wood-deep)" stroke-width="1.4" d="M560,30 C640,40 760,24 900,48" />
+    <path class="st g3" pathLength="1" stroke="var(--ink)" stroke-width="1.7" d="M262,470 C360,500 460,468 560,478 C590,480 610,470 628,462" />
+    <path class="st g4 ap-track" pathLength="1" stroke="var(--ink)" stroke-width="2.1" d="M1170,180 C1130,240 1080,250 1030,290 C990,322 950,320 916,316" />
+    <path class="st g4" pathLength="1" stroke="var(--ink)" stroke-width="1.8" d="M920,376 C940,420 990,440 1050,466 C1120,496 1180,470 1236,472" />
+    <path class="st g4" pathLength="1" stroke="var(--ink)" stroke-width="1.6" d="M840,398 C820,430 780,432 748,444" />
+    <path class="st g5" pathLength="1" stroke="var(--ink)" stroke-width="1.7" d="M690,478 C688,520 696,560 690,630" />
+    <path class="st g5" pathLength="1" stroke="var(--wood-deep)" stroke-width="1.5" d="M186,470 C130,510 80,540 -30,570" />
+    <path class="st g5" pathLength="1" stroke="var(--wood-deep)" stroke-width="1.5" d="M1310,490 C1360,510 1400,540 1470,560" />
+    <path class="st g5" pathLength="1" stroke="var(--ink)" stroke-width="1.5" d="M1190,120 C1186,80 1194,50 1186,-20" />
+    <!-- dendrite tufts -->
+    <path class="st g2" pathLength="1" stroke="var(--ink)" stroke-width="1.3" d="M560,140 C548,124 546,108 552,90" />
+    <path class="st g2" pathLength="1" stroke="var(--ink)" stroke-width="1.3" d="M618,132 C630,118 646,110 664,110" />
+    <path class="st g4" pathLength="1" stroke="var(--ink)" stroke-width="1.3" d="M828,306 C810,292 800,278 798,260" />
+    <path class="st g4" pathLength="1" stroke="var(--ink)" stroke-width="1.3" d="M900,278 C910,262 926,252 944,250" />
+    <path class="st g4" pathLength="1" stroke="var(--ink)" stroke-width="1.2" d="M868,272 C866,254 872,240 884,228" />
+    <path class="st g1" pathLength="1" stroke="var(--ink)" stroke-width="1.2" d="M176,96 C160,84 152,70 152,52" />
+    <path class="st g3" pathLength="1" stroke="var(--ink)" stroke-width="1.2" d="M262,436 C252,420 250,404 256,386" />
+    <path class="st g5" pathLength="1" stroke="var(--ink)" stroke-width="1.2" d="M1322,442 C1330,426 1344,416 1362,414" />
+  </g>
+
+  <!-- Cell bodies: irregular blob outlines, retraced like a sketch -->
+  <g class="somas" fill="none" stroke-linecap="round">
+    <path class="st g1" pathLength="1" stroke="var(--ink)" stroke-width="2.2" d="M196,104 C202,88 226,82 240,94 C254,106 252,128 236,136 C220,144 190,120 196,104 Z" />
+    <path class="st g1 ghost" pathLength="1" stroke="var(--ink)" stroke-width="1.1" d="M200,101 C207,86 228,80 241,91 C254,102 253,124 238,132 C223,140 193,116 200,101 Z" />
+    <path class="st g2" pathLength="1" stroke="var(--ink)" stroke-width="2.4" d="M566,164 C562,144 580,128 602,132 C624,136 636,158 626,176 C616,194 588,196 574,184 C566,177 568,170 566,164 Z" />
+    <path class="st g2 ghost" pathLength="1" stroke="var(--ink)" stroke-width="1.2" d="M570,161 C567,143 583,129 603,133 C623,137 634,157 625,173 C616,189 590,191 577,180 C570,174 572,167 570,161 Z" />
+    <path class="st g4" pathLength="1" stroke="var(--ink)" stroke-width="2.6" d="M848,314 C838,292 852,268 880,264 C908,260 932,278 934,304 C936,330 916,350 888,348 C860,346 856,332 848,314 Z" />
+    <path class="st g4 ghost" pathLength="1" stroke="var(--ink)" stroke-width="1.3" d="M853,311 C844,291 857,270 882,266 C907,262 928,279 930,302 C932,325 914,343 889,341 C864,339 860,326 853,311 Z" />
+    <path class="st g2" pathLength="1" stroke="var(--ink)" stroke-width="1.9" d="M1160,152 C1156,136 1170,122 1188,126 C1206,130 1214,148 1204,162 C1194,176 1164,168 1160,152 Z" />
+    <path class="st g3" pathLength="1" stroke="var(--ink)" stroke-width="2" d="M222,452 C218,436 232,422 250,424 C268,426 278,444 270,458 C262,472 226,468 222,452 Z" />
+    <path class="st g5" pathLength="1" stroke="var(--ink)" stroke-width="2" d="M646,452 C644,434 662,420 682,426 C702,432 708,454 696,466 C684,478 648,470 646,452 Z" />
+    <path class="st g5" pathLength="1" stroke="var(--ink)" stroke-width="1.9" d="M1250,470 C1248,452 1266,440 1284,446 C1302,452 1308,472 1296,484 C1284,496 1252,488 1250,470 Z" />
+  </g>
+
+  <!-- Action potentials: a short highlight traveling two strands, downward -->
+  <g fill="none" stroke-linecap="round">
+    <path class="ap" pathLength="1" stroke="var(--wood)" stroke-width="3.4" d="M600,200 C616,246 660,266 690,296 C710,316 730,320 748,318" />
+    <path class="ap ap-late" pathLength="1" stroke="var(--wood)" stroke-width="3.4" d="M1170,180 C1130,240 1080,250 1030,290 C990,322 950,320 916,316" />
+  </g>
+
+  <!-- Neurotransmitters drifting across three synaptic gaps -->
+  <g class="dots">
+    <circle class="dot da" r="3.5" fill="var(--wood-deep)" style="offset-path: path('M752,318 C770,320 786,316 800,310')" />
+    <circle class="dot db" r="3" fill="var(--wood-deep)" style="offset-path: path('M750,328 C766,330 780,328 794,322')" />
+    <circle class="dot da" r="3.5" fill="var(--ink)" style="offset-path: path('M632,460 C640,458 648,456 654,454')" />
+    <circle class="dot db" r="3" fill="var(--wood-deep)" style="offset-path: path('M1240,472 C1246,472 1250,472 1256,472')" />
+    <circle class="dot da" r="3" fill="var(--wood-deep)" style="offset-path: path('M918,320 C910,330 900,338 892,344')" />
+  </g>
+</svg>
+
+<style>
+  .synapse {
+    width: 100%;
+    height: 100%;
+  }
+  .ghost { opacity: 0.35; }
+
+  /* 16s loop: sketch on over ~7s in an irregular order, then a long hold. */
+  .g1 { animation: draw-g1 16s linear infinite; }
+  .g2 { animation: draw-g2 16s linear infinite; }
+  .g3 { animation: draw-g3 16s linear infinite; }
+  .g4 { animation: draw-g4 16s linear infinite; }
+  .g5 { animation: draw-g5 16s linear infinite; }
+  .st { stroke-dasharray: 1; }
+  @keyframes draw-g1 { 0%, 2% { stroke-dashoffset: 1; } 12%, 100% { stroke-dashoffset: 0; } }
+  @keyframes draw-g2 { 0%, 8% { stroke-dashoffset: 1; } 21%, 100% { stroke-dashoffset: 0; } }
+  @keyframes draw-g3 { 0%, 15% { stroke-dashoffset: 1; } 28%, 100% { stroke-dashoffset: 0; } }
+  @keyframes draw-g4 { 0%, 23% { stroke-dashoffset: 1; } 36%, 100% { stroke-dashoffset: 0; } }
+  @keyframes draw-g5 { 0%, 31% { stroke-dashoffset: 1; } 44%, 100% { stroke-dashoffset: 0; } }
+
+  /* Watercolor arrives after the lines, like a wash over a finished sketch */
+  .pool { animation: pool-in 16s linear infinite; }
+  @keyframes pool-in {
+    0%, 36% { opacity: 0; }
+    52%, 100% { opacity: var(--po, 0.12); }
+  }
+
+  /* Dots cross the gap in about 3s during the hold */
+  .dot { opacity: 0; }
+  .da { animation: drift-a 16s linear infinite; }
+  .db { animation: drift-b 16s linear infinite; }
+  @keyframes drift-a {
+    0%, 55% { offset-distance: 0%; opacity: 0; }
+    57% { opacity: 0.85; }
+    72% { opacity: 0.85; }
+    74%, 100% { offset-distance: 100%; opacity: 0; }
+  }
+  @keyframes drift-b {
+    0%, 60% { offset-distance: 0%; opacity: 0; }
+    62% { opacity: 0.85; }
+    77% { opacity: 0.85; }
+    79%, 100% { offset-distance: 100%; opacity: 0; }
+  }
+
+  /* A soft highlight travels the strand, gently downward */
+  .ap { stroke-dasharray: 0.055 0.945; stroke-dashoffset: 1.055; opacity: 0; animation: ap-run 16s linear infinite; }
+  .ap-late { animation-name: ap-run-late; }
+  @keyframes ap-run {
+    0%, 50% { stroke-dashoffset: 1.055; opacity: 0; }
+    52% { opacity: 0.7; }
+    78% { opacity: 0.7; }
+    80%, 100% { stroke-dashoffset: -0.055; opacity: 0; }
+  }
+  @keyframes ap-run-late {
+    0%, 58% { stroke-dashoffset: 1.055; opacity: 0; }
+    60% { opacity: 0.7; }
+    86% { opacity: 0.7; }
+    88%, 100% { stroke-dashoffset: -0.055; opacity: 0; }
+  }
+
+  /* Reduced motion: the fully drawn network as a single static frame */
+  @media (prefers-reduced-motion: reduce) {
+    .st, .pool, .dot, .ap { animation: none; }
+    .st { stroke-dashoffset: 0; }
+    .pool { opacity: var(--po, 0.12); }
+    .dot, .ap { display: none; }
+  }
+</style>

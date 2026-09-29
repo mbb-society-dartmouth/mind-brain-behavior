@@ -1,0 +1,20 @@
+{
+  "current": {
+    "heading": "Current project",
+    "body": "In development for Fall 2026. Details will be posted here.",
+    "draft": true
+  },
+  "past": [
+    {
+      "name": "Neuroflow",
+      "termLabel": "Spring 2026",
+      "termLabelDraft": true,
+      "problem": "Meditation is subjective. It's hard to know how or when you're improving, and for people who find objective feedback motivating, that's a barrier to sticking with it long enough to see the benefits.",
+      "approach": "Partnered with the Student Wellness Center, which offers meditation sessions; obtained a product grant; built and tested a web app that connects to the OpenBCI Ganglion headset and shows real-time readings of focus, stress, and relaxation during a session.",
+      "result": "Neuroflow, a live meditation web app, presented at Technigala.",
+      "image": "neuroflow-screenshot",
+      "imageAlt": "Neuroflow's monitor screen: four live EEG channel traces on the left, with meters for stress, focus, and relaxation and a session timer on the right.",
+      "imageCaption": "The Neuroflow monitor during a session: four EEG channels from the Ganglion board, with live stress, focus, and relaxation readings."
+    }
+  ]
+}

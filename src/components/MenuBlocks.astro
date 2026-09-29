@@ -1,0 +1,64 @@
+---
+const tiles = [
+  { label: 'Our mission', desc: 'Why the society exists and who runs it.', href: '/mission' },
+  { label: 'What we do', desc: 'Lab tours, guest lectures, research placement, workshops.', href: '/what-we-do' },
+  { label: 'Neurotech team', desc: 'Building with consumer EEG headsets, one project a term.', href: '/neurotech' },
+  { label: 'Term calendar', desc: 'Fall 2026 events, week by week.', href: '/calendar' },
+  { label: 'Contact', desc: 'Join, ask a question, or offer a lab tour.', href: '/contact' },
+];
+---
+<section class="menu-page on-paper" aria-label="Sections">
+  <div class="grid">
+    {tiles.map((t) => (
+      <a class="tile" href={t.href}>
+        <span class="label">{t.label}</span>
+        <span class="desc">{t.desc}</span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .menu-page {
+    background: var(--paper);
+    min-height: 100vh;
+    display: flex;
+  }
+  .grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 1fr;
+  }
+  .tile {
+    grid-column: span 6;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: var(--s1);
+    padding: 32px;
+    min-height: 44px;
+    background: var(--white);
+    color: var(--ink);
+    text-decoration: none;
+    border: 1.5px solid var(--black);
+    box-shadow: 5px 5px 0 var(--black);
+    transition: transform var(--speed-press) ease-out, box-shadow var(--speed-press) ease-out,
+                background var(--speed-press) ease-out, color var(--speed-press) ease-out;
+  }
+  @media (min-width: 768px) {
+    .tile { grid-column: span 2; }
+    .tile:nth-child(4), .tile:nth-child(5) { grid-column: span 3; }
+  }
+  .tile:hover, .tile:focus-visible {
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0 var(--black);
+    background: var(--wood);
+    color: var(--white);
+  }
+  .tile:focus-visible { outline: 2px solid var(--green); outline-offset: -6px; }
+  .tile:active { transform: translate(5px, 5px); box-shadow: none; }
+  .label { font-size: 28px; font-weight: 500; line-height: 1.1; }
+  .desc { font-size: 15px; line-height: 1.45; max-width: 40ch; }
+  .tile:hover .desc, .tile:focus-visible .desc { color: var(--white); }
+</style>

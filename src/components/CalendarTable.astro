@@ -1,0 +1,66 @@
+---
+import cal from '../data/calendar.json';
+
+function fmt(iso: string): string {
+  const [y, m, d] = iso.split('-').map(Number);
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+  return `${months[m - 1]} ${d}`;
+}
+---
+<div class="scroller">
+  <table class="cal">
+    <thead>
+      <tr><th scope="col">Week</th><th scope="col">Week of</th><th scope="col">Event</th><th scope="col">Details</th></tr>
+    </thead>
+    <tbody>
+      {cal.weeks.map((w) => (
+        <tr data-week-of={w.weekOf}>
+          <td>{w.week}</td>
+          <td>{fmt(w.weekOf)}</td>
+          <td class="event">{w.event}</td>
+          <td>{[w.details, w.time, w.place].filter(Boolean).join(', ')}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .scroller { overflow-x: auto; }
+  .cal {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    border-top: 1px solid var(--ink);
+  }
+  th {
+    text-align: left;
+    font-size: var(--size-caption);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+    padding: 12px 24px 12px 0;
+  }
+  td { padding: 14px 24px 14px 0; vertical-align: top; }
+  tr { border-bottom: 1px solid var(--ink); }
+  tbody tr:nth-child(even) { background: var(--paper); }
+  tbody tr:nth-child(even) td:first-child { padding-left: 12px; }
+  tbody tr:nth-child(even) td:last-child { padding-right: 12px; }
+  .event { font-weight: 500; }
+  /* tr border-left is unreliable with border-collapse; inset shadow on the first cell */
+  tbody tr.current td:first-child { box-shadow: inset 4px 0 0 var(--green); padding-left: 12px; }
+</style>
+
+<script>
+  // Mark the visitor's current week: Monday <= today < Monday + 7 days.
+  const rows = document.querySelectorAll<HTMLTableRowElement>('tr[data-week-of]');
+  const now = new Date();
+  for (const row of rows) {
+    const [y, m, d] = (row.dataset.weekOf ?? '').split('-').map(Number);
+    if (!y) continue;
+    const monday = new Date(y, m - 1, d);
+    const next = new Date(y, m - 1, d + 7);
+    if (now >= monday && now < next) row.classList.add('current');
+  }
+</script>
