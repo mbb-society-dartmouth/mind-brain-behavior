@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://mindbrainbehavior.org',
+  site: 'https://www.mindbrainbehavior.org',
   output: 'static',
   devToolbar: { enabled: false },
 });
