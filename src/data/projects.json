@@ -8,7 +8,7 @@
     {
       "name": "Neuroflow",
       "termLabel": "Spring 2026",
-      "termLabelDraft": true,
+      "termLabelDraft": false,
       "problem": "Meditation is subjective. It's hard to know how or when you're improving, and for people who find objective feedback motivating, that's a barrier to sticking with it long enough to see the benefits.",
       "approach": "Partnered with the Student Wellness Center, which offers meditation sessions; obtained a product grant; built and tested a web app that connects to the OpenBCI Ganglion headset and shows real-time readings of focus, stress, and relaxation during a session.",
       "result": "Neuroflow, a live meditation web app, presented at Technigala.",

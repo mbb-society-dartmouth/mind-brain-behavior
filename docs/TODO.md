@@ -7,7 +7,7 @@ Open items from CONTENT.md section 10, plus assumptions made during the build.
 - [ ] Course recommendations sheet: add the link on the what-we-do page (currently plain text)
 - [ ] Emotiv model name: confirm ("Emotiv Insight" rendered; Luca wrote "Emotiv Insight V")
 - [ ] Current neurotech project: replace "In development for Fall 2026" with details
-- [ ] Neuroflow term label: confirm "Spring 2026" on the neurotech page
+- [x] Neuroflow term label: "Spring 2026" confirmed by Luca on 2026-09-29 (hero caption now says "in spring 2026")
 - [ ] Neurotech application link: wire up the disabled "Applications closed" button when applications open
 - [ ] Neurotech current members: replace "Roster to be added."
 - [ ] Calendar: add times, places, and links (fields already exist in src/data/calendar.json)
@@ -48,3 +48,6 @@ Open items from CONTENT.md section 10, plus assumptions made during the build.
   favicons regenerate with node scripts/generate-icons.mjs.
 - [ ] Dartmouth logo placement is pending approval from the Office of Communications.
       It appears only in TopBar.astro (one img tag) and is easy to remove.
+- [ ] The Dartmouth logo file is a square stacked lockup, so the wordmark stays small
+      even at 44px bar height. A horizontal lockup file from Dartmouth would read
+      better in the top bar.

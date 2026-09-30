@@ -16,7 +16,15 @@ const items = [
       href="https://home.dartmouth.edu"
       aria-label="Dartmouth College home"
     >
-      <img src="/media/dartmouth-logo.webp" alt="Dartmouth College" height="26" width="118" />
+      <img src="/media/dartmouth-logo.webp" alt="Dartmouth College" height="44" width="44" />
+    </a>
+
+    <a class="home-link" href="/" aria-label="Home" aria-current={current === '/' ? 'page' : undefined}>
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3.5 10.6 12 3.6l8.5 7" />
+        <path d="M5.6 9.6V20.2h12.8V9.6" />
+        <path d="M9.9 20.2v-5.8h4.2v5.8" />
+      </svg>
     </a>
 
     <nav class="nav" aria-label="Site">
@@ -35,6 +43,7 @@ const items = [
 
 <dialog class="menu-dialog" id="menu-dialog" aria-label="Site menu">
   <nav aria-label="Site">
+    <a class="menu-item" href="/" aria-current={current === '/' ? 'page' : undefined}>Home</a>
     {items.map((it) => (
       <a
         class="menu-item"
@@ -59,12 +68,22 @@ const items = [
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding-inline: var(--gutter);
   }
-  /* Dartmouth logo: unmodified, clear space at least its own height on all sides */
-  .dartmouth { display: flex; align-items: center; }
-  .dartmouth img { height: 26px; width: auto; }
+  /* Dartmouth logo: unmodified, with clear space around it */
+  .dartmouth { display: flex; align-items: center; margin-right: auto; }
+  .dartmouth img { height: 44px; width: auto; }
+
+  .home-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    color: var(--ink);
+    margin-right: var(--s2);
+  }
+  .home-link[aria-current='page'] { color: var(--wood-deep); }
 
   .menu-btn {
     display: none;

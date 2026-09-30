@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import CalendarTable from '../components/CalendarTable.astro';
+import BlockButton from '../components/BlockButton.astro';
 import cal from '../data/calendar.json';
 ---
 <Base
@@ -16,6 +17,10 @@ import cal from '../data/calendar.json';
     <section class="section">
       <CalendarTable />
     </section>
+
+    <section class="cta-section">
+      <p><BlockButton href="/contact">Get in touch</BlockButton></p>
+    </section>
   </main>
 </Base>
 
@@ -23,8 +28,10 @@ import cal from '../data/calendar.json';
   .term-label {
     font-size: var(--size-section);
     font-weight: 500;
+    font-style: italic;
     margin-bottom: var(--s2);
   }
+  .cta-section { margin-block: var(--s5); }
   .note { color: var(--grey-mid); font-size: 15px; }
   .section { margin-top: var(--s4); }
 </style>

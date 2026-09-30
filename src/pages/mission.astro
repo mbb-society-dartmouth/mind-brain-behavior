@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import OfficerList from '../components/OfficerList.astro';
+import BlockButton from '../components/BlockButton.astro';
 ---
 <Base
   title="Our mission | Mind, Brain, Behavior Society"
@@ -12,18 +13,16 @@ import OfficerList from '../components/OfficerList.astro';
 
     <section class="section statement-wrap">
       <hr class="rule" />
-      <p class="statement">
-        Foster interdisciplinary exploration and collaboration at the intersection of
-        neuroscience, psychology, and related fields that fall between departments at
-        Dartmouth. We aim to advance the understanding of the brain and mind, and inspire
-        innovation in these fields by connecting undergraduate students through speaker
-        events, research opportunities, and entrepreneurial initiatives.
-      </p>
+      <ul class="statement">
+        <li>Foster interdisciplinary exploration and collaboration at the intersection of neuroscience, psychology, and related fields that fall between departments at Dartmouth.</li>
+        <li>Advance the understanding of the brain and mind.</li>
+        <li>Inspire innovation in these fields by connecting undergraduate students through speaker events, research opportunities, and entrepreneurial initiatives.</li>
+      </ul>
       <hr class="rule" />
     </section>
 
     <section class="section">
-      <h2 class="section-h">In plainer terms</h2>
+      <h2 class="section-h">Practically speaking</h2>
       <p>
         Finance, consulting, and engineering students at Dartmouth have pipelines: clubs,
         recruiting, and ways to work in their field before graduating. Brain science
@@ -52,16 +51,36 @@ import OfficerList from '../components/OfficerList.astro';
       <h2 class="section-h">Officers, 2026 to 2027</h2>
       <OfficerList />
     </section>
+
+    <section class="section">
+      <p><BlockButton href="/what-we-do">See what we do</BlockButton></p>
+    </section>
   </main>
 </Base>
 
 <style>
   .statement {
+    list-style: none;
+    padding: 0;
+    padding-block: var(--s4);
+    max-width: 52ch;
+  }
+  .statement li {
+    position: relative;
     font-size: 22px;
     font-weight: 500;
     line-height: 1.45;
-    max-width: 46ch;
-    padding-block: var(--s4);
+    padding-left: 26px;
+  }
+  .statement li + li { margin-top: var(--s3); }
+  .statement li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 9px;
+    height: 9px;
+    background: var(--wood);
   }
   p + p { margin-top: var(--s3); }
 </style>
