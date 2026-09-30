@@ -16,7 +16,7 @@
   --font-body: 'Ranade', 'Helvetica Neue', Arial, sans-serif;
   --font-display: 'Clash Display', 'Ranade', 'Arial Black', sans-serif;
 
-  --size-home-title: clamp(56px, 9vw, 152px);
+  --size-home-title: clamp(52px, 8.6vw, 145px);
   --size-page-title: 48px;
   --size-section: 26px;
   --size-body: 17px;
@@ -29,19 +29,18 @@
   /* Layout */
   --max-w: 1200px;
   --gutter: 24px;
-  --topbar-h: 56px;
-  --topbar-h-open: 104px;
+  --topbar-h: 112px;
 
   /* Motion */
   --speed-press: 90ms;
   --speed-menu: 160ms;
 }
 @media (min-width: 768px) {
-  :root { --gutter: 48px; }
+  :root { --gutter: 48px; --topbar-h: 168px; }
 }
 @media (max-width: 767px) {
   :root {
-    --size-home-title: clamp(44px, 14vw, 72px);
+    --size-home-title: clamp(42px, 13vw, 68px);
     --size-page-title: 34px;
     --size-section: 22px;
     --size-body: 16px;
