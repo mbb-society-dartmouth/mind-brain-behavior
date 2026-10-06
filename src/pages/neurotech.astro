@@ -4,6 +4,7 @@ import Figure from '../components/Figure.astro';
 import BlockButton from '../components/BlockButton.astro';
 import equipment from '../data/equipment.json';
 import projects from '../data/projects.json';
+import members from '../data/neurotech-members.json';
 import heroPhoto from '../assets/media/neurotech-team-neuroflow-presentation-at-technigala.png';
 import neuroflowShot from '../assets/media/neuroflow-screenshot.png';
 
@@ -107,7 +108,9 @@ const past = projects.past[0];
 
     <section class="section">
       <h2 class="section-h">Current members</h2>
-      <p>Roster to be added.</p>
+      <ul>
+        {members.map((m) => <li>{m.name}{m.role && ` (${m.role})`}</li>)}
+      </ul>
     </section>
   </main>
 </Base>

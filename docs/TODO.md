@@ -9,7 +9,7 @@ Open items from CONTENT.md section 10, plus assumptions made during the build.
 - [ ] Current neurotech project: replace "In development for Fall 2026" with details
 - [x] Neuroflow term label: "Spring 2026" confirmed by Luca on 2026-09-29 (hero caption now says "in spring 2026")
 - [ ] Neurotech application link: wire up the disabled "Applications closed" button when applications open
-- [ ] Neurotech current members: replace "Roster to be added."
+- [x] Neurotech current members: replace "Roster to be added."
 - [ ] Calendar: add times, places, and links (fields already exist in src/data/calendar.json)
 
 ## Images
