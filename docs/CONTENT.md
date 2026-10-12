@@ -163,9 +163,9 @@ Render from `src/data/calendar.json` (one term object with an array of weeks):
 | Week | Week of | Event | Details |
 |---|---|---|---|
 | 1 | Sept 14 | Intro meeting | Held |
-| 4 | Oct 5 | Lab tour | Date, time, and place TBD |
-| 5 | Oct 12 | VR workshop | TBD |
-| 6 | Oct 19 | Career workshop | TBD |
+| 5 | Oct 12 | Career workshop | Monday, 3:30pm, Carson 60. Focus: biotech, neurotech, and life sciences consulting |
+| 6 | Oct 19 | Lab tour | TBD |
+| 7 | Oct 26 | VR workshop | TBD |
 | 8 | Nov 2 | Social event | TBD |
 | 9 | Nov 9 | Guest lecture | TBD |
 
