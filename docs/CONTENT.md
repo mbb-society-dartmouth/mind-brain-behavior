@@ -164,10 +164,9 @@ Render from `src/data/calendar.json` (one term object with an array of weeks):
 |---|---|---|---|
 | 1 | Sept 14 | Intro meeting | Held |
 | 5 | Oct 12 | Career workshop | Monday, 3:30pm, Carson 60. Focus: biotech, neurotech, and life sciences consulting |
-| 6 | Oct 19 | Lab tour | TBD |
-| 7 | Oct 26 | VR workshop | TBD |
-| 8 | Nov 2 | Social event | TBD |
-| 9 | Nov 9 | Guest lecture | TBD |
+| 6 | Oct 19 | Lab tour: CAN Lab | Cognitive Affective Neuroscience Lab. Research methods for neuromodulation and noninvasive treatment of mental illness. Date and time TBD |
+| 7 | Oct 26 | Professor talk | Date and time TBD |
+| 8 | Nov 2 | Lab tour | Date and time TBD |
 
 Show only weeks with events. Mark the current week from the visitor's date. Include fields in the JSON for time, place, and link, left empty for now.
 
