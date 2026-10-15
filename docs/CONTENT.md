@@ -164,7 +164,7 @@ Render from `src/data/calendar.json` (one term object with an array of weeks):
 |---|---|---|---|
 | 1 | Sept 14 | Intro meeting | Held |
 | 5 | Oct 12 | Career workshop | Monday, 3:30pm, Carson 60. Focus: biotech, neurotech, and life sciences consulting |
-| 6 | Oct 19 | Lab tour: CAN Lab | Cognitive Affective Neuroscience Lab. Research methods for neuromodulation and noninvasive treatment of mental illness. Date and time TBD |
+| 6 | Oct 19 | Lab tour: CAN Lab | Cognitive Affective Neuroscience Lab. Research methods for neuromodulation and noninvasive treatment of mental illness. Friday, Oct 23, 3:30 to 4:15pm, Moore Building, 4th floor |
 | 7 | Oct 26 | Professor talk | Date and time TBD |
 | 8 | Nov 2 | Lab tour | Date and time TBD |
 

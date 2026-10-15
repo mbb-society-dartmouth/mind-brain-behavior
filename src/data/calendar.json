@@ -5,7 +5,7 @@
   "weeks": [
     {"week": 1, "weekOf": "2026-09-14", "event": "Intro meeting", "details": "Held", "time": "", "place": "", "link": ""},
     {"week": 5, "weekOf": "2026-10-12", "event": "Career workshop", "details": "Monday, 3:30pm, Carson 60. Focus: biotech, neurotech, and life sciences consulting", "time": "", "place": "", "link": ""},
-    {"week": 6, "weekOf": "2026-10-19", "event": "Lab tour: CAN Lab", "details": "Cognitive Affective Neuroscience Lab. Research methods for neuromodulation and noninvasive treatment of mental illness. Date and time TBD", "time": "", "place": "", "link": ""},
+    {"week": 6, "weekOf": "2026-10-19", "event": "Lab tour: CAN Lab", "details": "Cognitive Affective Neuroscience Lab. Research methods for neuromodulation and noninvasive treatment of mental illness. Friday, Oct 23, 3:30 to 4:15pm, Moore Building, 4th floor", "time": "", "place": "", "link": ""},
     {"week": 7, "weekOf": "2026-10-26", "event": "Professor talk", "details": "Date and time TBD", "time": "", "place": "", "link": ""},
     {"week": 8, "weekOf": "2026-11-02", "event": "Lab tour", "details": "Date and time TBD", "time": "", "place": "", "link": ""}
   ]
